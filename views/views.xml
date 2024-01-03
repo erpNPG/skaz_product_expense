@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<odoo>
+<data>
+    <record id="sk_tehnic_expense_form_iniherit_inherit" model="ir.ui.view">
+        <field name="name">sk_tehnic_expense_form_iniherit_inherit</field>
+        <field name="model">product.expense</field>
+        <field name="inherit_id" ref="npg_technic_expense.tehnic_expense_form_iniherit"/>
+        <field name="arch" type="xml">
+
+		 <xpath expr="//form/sheet/group[3]/group[2]/field[@name='work_order_id']" position="after">
+                    <field name="serial_number" attrs="{'required':[('is_technic_expense','=', True)], 'invisible':[('is_technic_expense','!=', True)]}"  />
+                    <field name="ed_number" attrs="{'required':[('is_technic_expense','=', True)], 'invisible':[('is_technic_expense','!=', True)]}"/>
+         </xpath>
+
+<!--        <xpath expr="//field[@name='product']" position="replace">-->
+<!--            <field name="product" options="{'no_create' : True}" domain="[]"  />-->
+<!--        </xpath>-->
+
+<!--         <xpath expr="//field[@name='product']" position="replace">-->
+<!--                    <field name="product" options="{'no_create' : True}" domain="['|',('is_technic_expense', '=', True), ('type', '=', 'service'), ('type', '!=', 'service')]"  />-->
+<!--         </xpath>-->
+
+
+		</field>
+</record>
+</data>
+</odoo>
